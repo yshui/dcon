@@ -1,6 +1,8 @@
 module number_theory.prime;
+import std.typecons;
 
-auto generatePrimeNumbers(T)(T max) {
+/// Run sieve of Eular on [1, max]
+auto sieveOfEuler(T)(T max) {
 	bool[] not_prime = new bool[max+1];
 	T[] result = [];
 	not_prime[1] = true;
@@ -18,7 +20,13 @@ auto generatePrimeNumbers(T)(T max) {
 			}
 		}
 	}
-	return result;
+	return tuple(not_prime, result);
+}
+
+/// Return all prime numbers in [1, max]
+auto generatePrimeNumbers(T)(T max) {
+	auto ret = sieveOfEuler!T(max);
+	return ret[1];
 }
 
 unittest {
