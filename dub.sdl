@@ -1,0 +1,8 @@
+name "dcon"
+description "Programming contest in D"
+authors "yshui"
+copyright "Copyright © 2019, Yuxuan Shui"
+license "MIT"
+targetType "sourceLibrary"
+sourcePaths "."
+importPaths "."
